@@ -27,7 +27,7 @@ class AppendStream implements StreamInterface
      * @param array $streams  Streams to wrap
      * @param array $metadata  Stream metadata
      */
-    public function __construct(array $streams = [], array $metadata)
+    public function __construct(array $streams = [], array $metadata = [])
     {
         foreach ($streams as &$stream) {
             $this->addStream($stream);
