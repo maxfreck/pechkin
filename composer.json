@@ -1,6 +1,7 @@
 {
     "name": "maxfreck/pechkin",
     "description": "Pechkin is a small and easy-to-use mailing library for PHP",
+    "keywords": ["library", "smtp", "curl", "client", "email", "SMTP Client"],
     "type": "library",
     "license": "MIT",
     "authors": [
