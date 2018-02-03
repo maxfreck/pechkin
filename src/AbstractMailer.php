@@ -14,7 +14,7 @@ namespace Pechkin;
  */
 const PECHKIN_SEMVER = [
     'major' => 0,
-    'minor' => 3,
+    'minor' => 5,
     'patch' => 0
 ];
 
