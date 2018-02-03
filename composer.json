@@ -1,0 +1,21 @@
+{
+    "name": "maxfreck/pechkin",
+    "description": "Pechkin is a small and easy-to-use mailing library for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxim Freck",
+            "email": "maxim@freck.pp.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "psr/http-message": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pechkin\\": "src/"
+        }
+    }
+}
