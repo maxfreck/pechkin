@@ -76,7 +76,7 @@ $mailer = new CurlMailer(
             (object)['email' => 'nemo@example.org', 'name' => 'Nemo Nobody'],
         ],
         'to' => [
-            (object)['email' => 'foo@example.com', 'Mr. Foo'],
+            (object)['email' => 'foo@example.com', 'name' => 'Mr. Foo'],
         ],
         'subject' => "Hello, Mr. Foo",
         'body' => FileStream::fromString($body, ['content-type' => 'text/html; charset="utf-8"']),
