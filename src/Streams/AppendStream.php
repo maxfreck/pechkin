@@ -5,13 +5,18 @@
  *
  * Copyright: Maxim Freck, 2018.
  * Authors:   Maxim Freck <maxim@freck.pp.ru>
+ *
+ *
+ * guzzle/psr7 is:
+ * Copyright: Michael Dowling, 2015.
+ * Authors:   Michael Dowling <mtdowling@gmail.com>, Tobias Schultze
  */
 namespace Pechkin\Streams;
 
 use Psr\Http\Message\StreamInterface;
 
 /**
- * Implementation of PSR-7 compatible empty stream
+ * Implementation of PSR-7 compatible stream
  * that wraps several streams one after the other.
  */
 class AppendStream implements StreamInterface
