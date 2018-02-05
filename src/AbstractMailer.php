@@ -15,7 +15,7 @@ namespace Pechkin;
 const PECHKIN_SEMVER = [
     'major' => 0,
     'minor' => 5,
-    'patch' => 0
+    'patch' => 2
 ];
 
 use \Psr\Http\Message\StreamInterface;
