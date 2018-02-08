@@ -69,7 +69,10 @@ abstract class fn
      */
     protected static function hasUtf(string $str): bool
     {
-        return (strlen($str) !== mb_strlen($str));
+        for ($i = 0; $i < strlen($str); $i++) {
+            if (ord($str[$i]) > 127) return true;
+        }
+        return false;
     }
 
     /**
