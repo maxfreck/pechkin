@@ -36,7 +36,7 @@ abstract class fn
      * @param string $str  Header character set (UTF-8 is default)
      * @return string encoded header content
      */
-    public function encode(string $str, string $charset = "UTF-8"): string
+    public static function encode(string $str, string $charset = "UTF-8"): string
     {
         if (strlen($str) > 70 || self::hasUtf($str)) {
             return substr(iconv_mime_encode('', $str, [
@@ -55,7 +55,7 @@ abstract class fn
      * @param string $str  String content
      * @return string secured string
      */
-    public function secure(string $str): string
+    public static function secure(string $str): string
     {
         return trim(str_replace(["\r", "\n"], '', $str));
     }
