@@ -129,7 +129,8 @@ abstract class fn
     {
         $out = new FileStream('php://temp', 'r+');
         while (!$in->eof()) {
-            $out->write($in->read($size).$delimiter);
+            $str = $in->read($size);
+            if ($str !== '') $out->write($str.$delimiter);
         }
         $out->rewind();
         return $out;

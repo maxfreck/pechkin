@@ -103,5 +103,4 @@ $mailer->send();
 
 ## To-Do
 
-- Unit tests. There is no unit tests at all for now.
 - Raw SMTP sender similar to PHPMailer.
