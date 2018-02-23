@@ -206,9 +206,9 @@ abstract class AbstractMailer
      * @param string $id  Optional attachment content ID
      * @return string attachment content ID
      */
-    public function addAttachment(StreamInterface $stream, string $id = ''): string
+    public function addAttachment(StreamInterface $stream): string
     {
-        return $this->body->addAttachment($stream, $id);
+        return $this->body->addAttachment($stream);
     }
 
     /**

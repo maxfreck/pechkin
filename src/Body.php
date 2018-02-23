@@ -77,9 +77,9 @@ class Body
      * @param string $id  Optional attachment content ID
      * @return string attachment content ID
      */
-    public function addAttachment(StreamInterface $stream, string $id): string
+    public function addAttachment(StreamInterface $stream): string
     {
-        if ($id === '') $id = fn::uniqid();
+        $id = $stream->getMetadata('id') ?? fn::uniqid();
         $this->attachments[$id] = $stream;
         return $id;
     }
