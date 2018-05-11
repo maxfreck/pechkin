@@ -59,10 +59,10 @@ class CurlMailer extends AbstractMailer
             CURLOPT_MAIL_FROM => "<" . $this->user . ">",
             CURLOPT_USERNAME => $this->user,
             CURLOPT_PASSWORD => $this->password,
-            CURLOPT_USE_SSL => CURLUSESSL_ALL,
             CURLOPT_MAIL_RCPT => $recepients,
             CURLOPT_USE_SSL => CURLUSESSL_ALL,
-            CURLOPT_UPLOAD => true
+            CURLOPT_UPLOAD => true,
+            CURLOPT_CONNECTTIMEOUT => 30
         ]);
 
         if ($this->timeout > 0) curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
