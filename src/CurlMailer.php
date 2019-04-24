@@ -87,7 +87,7 @@ class CurlMailer extends AbstractMailer
         curl_close($ch);
 
         if ($error) {
-            throw new \RuntimeException("cURL error #{$errno}: {$err}");
+            throw new \RuntimeException("cURL error #{$errno}: {$error}");
         }
     }
 }
