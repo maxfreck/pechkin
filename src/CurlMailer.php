@@ -14,6 +14,7 @@ class CurlMailer extends AbstractMailer
 {
     protected $proxy = null;
     protected $dataChunkSize = 1024;
+    protected $timeout = 10000;
 
     public function __construct(string $server, string $email, string $password, \stdClass $settings = null)
     {
@@ -27,6 +28,7 @@ class CurlMailer extends AbstractMailer
 
         if (isset($s->proxy) && !empty($s->proxy)) $this->setProxy($s->proxy);
         if (isset($s->dataChunkSize) && (int)$s->dataChunkSize > 0) $this->dataChunkSize = (int)$s->dataChunkSize;
+        if (isset($s->timeout) && (int)$s->timeout > 0) $this->timeout = (int)$s->timeout;
     }
 
     /**
@@ -62,7 +64,7 @@ class CurlMailer extends AbstractMailer
             CURLOPT_MAIL_RCPT => $recepients,
             CURLOPT_USE_SSL => CURLUSESSL_ALL,
             CURLOPT_UPLOAD => true,
-            CURLOPT_CONNECTTIMEOUT => 30
+            CURLOPT_CONNECTTIMEOUT_MS => $this->timeout,
         ]);
 
         if ($this->timeout > 0) curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
