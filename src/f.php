@@ -11,7 +11,7 @@ use \Psr\Http\Message\StreamInterface;
 
 use \Pechkin\Streams\FileStream;
 
-abstract class fn
+abstract class f
 {
     /**
      * Host name

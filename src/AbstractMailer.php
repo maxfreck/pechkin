@@ -75,7 +75,7 @@ abstract class AbstractMailer
         if (isset($s->priority)) $this->setHeader('Priority', (string)((int)$s->proirity));
 
         if (isset($s->host)) {
-            fn::$host = $s->host;
+            f::$host = $s->host;
             $this->headers->generateMessageId();
         }
 
@@ -262,7 +262,7 @@ abstract class AbstractMailer
 
     protected function buildAltBodyEmailStream(): StreamInterface
     {
-        $boundary = fn::uniqid();
+        $boundary = f::uniqid();
         $this->body->setBoundary($boundary);
         $this->setHeader('Content-Type', 'multipart/alternative; boundary='.$boundary);
 
@@ -271,7 +271,7 @@ abstract class AbstractMailer
 
     protected function buildAttachmentsEmailStream(): StreamInterface
     {
-        $boundary = fn::uniqid();
+        $boundary = f::uniqid();
         $this->body->setBoundary($boundary);
         $contentType = $this->body->hasInlineAttachments() ? 'multipart/related' : 'multipart/mixed';
         $this->setHeader('Content-Type', $contentType.'; boundary='.$boundary);
