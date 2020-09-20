@@ -23,7 +23,7 @@ class Headers
      */
     public function __construct(string $email, string $name = '')
     {
-        $this->initHeaders(fn::address($email, $name));
+        $this->initHeaders(f::address($email, $name));
     }
 
     protected function initHeaders(string $from)
@@ -47,7 +47,7 @@ class Headers
      */
     public function generateMessageId()
     {
-        $this->setHeader('Message-ID', fn::encode(sprintf('<%s@%s>', fn::uniqid(), fn::hostname())));
+        $this->setHeader('Message-ID', f::encode(sprintf('<%s@%s>', f::uniqid(), f::hostname())));
     }
 
     /**
@@ -60,8 +60,8 @@ class Headers
         foreach ($this->headers as $header => $value) {
             if (empty($value)) continue;
             if (is_array($value)) $value = implode(', ', $value);
-            $value = fn::encode(fn::secure($value));
-            $header = fn::secure($header);
+            $value = f::encode(f::secure($value));
+            $header = f::secure($header);
             $ret->write("{$header}: {$value}\n");
         }
 
@@ -114,7 +114,7 @@ class Headers
      */
     public function setFrom(string $email, string $name = ''): bool
     {
-        return $this->setHeader('From', fn::address($email, $name));
+        return $this->setHeader('From', f::address($email, $name));
     }
 
     /**
@@ -168,7 +168,7 @@ class Headers
     protected function addAddress(string $type, string $email, string $name = ''): bool
     {
         $email = trim($email);
-        $this->headers[$type][$email] = fn::address($email, $name);
+        $this->headers[$type][$email] = f::address($email, $name);
         return true;
     }
 

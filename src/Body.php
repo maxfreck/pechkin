@@ -79,7 +79,7 @@ class Body
      */
     public function addAttachment(StreamInterface $stream): string
     {
-        $id = $stream->getMetadata('id') ?? fn::uniqid();
+        $id = $stream->getMetadata('id') ?? f::uniqid();
         $this->attachments[$id] = $stream;
         return $id;
     }
@@ -139,7 +139,7 @@ class Body
     protected function withAttachments(): StreamInterface
     {
         $altBody = $this->altBody ?? FileStream::fromString('This is a multipart message');
-        $boundary = fn::uniqid();
+        $boundary = f::uniqid();
 
         $bodyHeader = new FileStream('php://temp', 'r+');
         $bodyHeader->write("\n\n--{$this->boundary}\n");
@@ -166,7 +166,7 @@ class Body
     {
         $contentType = $stream->getMetadata('content-type') ?? 'text/plain';
         $disposition = $stream->getMetadata('disposition') ?? 'attachment';
-        $name = $stream->getMetadata('name') ?? fn::uniqid().'.bin';
+        $name = $stream->getMetadata('name') ?? f::uniqid().'.bin';
 
         $header = new FileStream('php://temp', 'r+');
         $header->write("\n\n--{$this->boundary}\n");
@@ -178,7 +178,7 @@ class Body
         
         return new AppendStream([
             $header,
-            fn::chunk(fn::base64Stream($stream))
+            f::chunk(f::base64Stream($stream))
         ]);
     }
 
@@ -203,7 +203,7 @@ class Body
 
         return new AppendStream([
             $header,
-            fn::chunk(fn::base64Stream($stream))
+            f::chunk(f::base64Stream($stream))
         ]);
     }
 
@@ -211,7 +211,7 @@ class Body
     {
         return new AppendStream([
             FileStream::fromString("\n"),
-            fn::chunk(fn::base64Stream($this->body))
+            f::chunk(f::base64Stream($this->body))
         ]);
     }
 }
